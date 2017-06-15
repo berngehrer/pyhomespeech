@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{b725a3ce-d8a6-4f8d-be9f-4b2f0a8ded99}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>openhab\openhab.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="include\applogging.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="include\azuretoken.py" />
+    <Compile Include="openhab\openhabparam.py" />
+    <Compile Include="openhab\openhabclient.py" />
+    <Compile Include="openhab\openhab.py" />
+    <Compile Include="openhab\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="include\intentresolver.py" />
+    <Compile Include="include\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="intentworker.py" />
+    <Compile Include="luis\luis_action.py" />
+    <Compile Include="luis\luis_composite_entity.py" />
+    <Compile Include="luis\luis_composite_entity_child.py" />
+    <Compile Include="luis\luis_dialog.py" />
+    <Compile Include="luis\luis_entity.py" />
+    <Compile Include="luis\luis_intent.py" />
+    <Compile Include="luis\luis_parameter.py" />
+    <Compile Include="luis\luis_parametervalue.py" />
+    <Compile Include="luis\luis_response.py" />
+    <Compile Include="luis\__init__.py" />
+    <Compile Include="include\processhelper.py" />
+    <Compile Include="recognizer.py" />
+    <Compile Include="sayclient.py" />
+    <Compile Include="include\speechservice.py" />
+    <Compile Include="include\appsettings.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="intents\GetCurrentTemperature.json" />
+    <Content Include="intents\GetCurrentWeather.json" />
+    <Content Include="intents\SetLightOff.json" />
+    <Content Include="intents\SetLightOn.json" />
+    <Content Include="intents\None.json" />
+    <Content Include="intents\SetHeatTemperature.json" />
+    <Content Include="intents\SetLightColor.json" />
+    <Content Include="intents\SetLightPercent.json" />
+    <Content Include="log\error.log" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="openhab" />
+    <Folder Include="intents" />
+    <Folder Include="luis" />
+    <Folder Include="include\" />
+    <Folder Include="log\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

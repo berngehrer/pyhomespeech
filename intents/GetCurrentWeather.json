@@ -1,0 +1,12 @@
+{
+  "connections": [
+    {
+      "channel": "/cognitive/speech/channel/openhab",
+      "parameter": {
+        "method": "GET",
+        "item": "Weather_Current",
+        "message": "Aktuelle Wetter {}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "message": "",
+  "entities": [
+    {
+      "type": "color",
+      "missing": "Bitte Farbe angeben"
+    }
+  ],
+  "connections": [
+    {
+      "channel": "/cognitive/speech/channel/openhab",
+      "parameter": {
+        "method": "POST",
+        "item": "Marco_Light_Color",
+        "value": "{color}",
+        "message": "Setze Lichtfarbe auf {color}"
+      }
+    }
+  ]
+}

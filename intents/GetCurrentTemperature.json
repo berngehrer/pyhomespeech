@@ -1,0 +1,15 @@
+{
+  "minScore": 0.1,
+  "connections": [
+    {
+      "channel": "/cognitive/speech/channel/openhab",
+      "parameter": {
+        "method": "GET",
+        "item": "Weather_Temperature",
+        "message": "Es hat {} Grad",
+        "format": "%.1f",
+        "type": "number"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "message": "",
+  "entities": [
+    {
+      "type": "buildin.percentage",
+      "missing": "Bitte Prozentwert angeben"
+    }
+  ],
+  "connections": [
+    {
+      "channel": "/cognitive/speech/channel/openhab",
+      "parameter": {
+        "method": "POST",
+        "item": "Marco_Light_Dim",
+        "value": "{buildin.percentage}",
+        "message": "Helligkeit auf {buildin.percentage} Prozent"
+      }
+    }
+  ]
+}

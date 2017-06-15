@@ -1,0 +1,19 @@
+{
+  "entities": [
+    {
+      "type": "number_value",
+      "missing": "Bitte Temperatur angeben"
+    }
+  ],
+  "connections": [
+    {
+      "channel": "/cognitive/speech/channel/openhab",
+      "parameter": {
+        "method": "POST",
+        "item": "HM_Marco_SetTemp",
+        "value": "{number_value}",
+        "message": "Heizung auf {number_value} Grad gesetzt"
+      }
+    }
+  ]
+}

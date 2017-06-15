@@ -1,0 +1,13 @@
+{
+  "connections": [
+    {
+      "channel": "/cognitive/speech/channel/openhab",
+      "parameter": {
+        "method": "POST",
+        "item": "Marco_Light_Switch",
+        "value": "OFF",
+        "message": "Licht wird ausgeschalten"
+      }
+    }
+  ]
+}
