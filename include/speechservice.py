@@ -9,12 +9,7 @@ import uuid
 class SpeechFunctions:
 
     def __init__(self, sttKey, luisKey):
-<<<<<<< HEAD
         self._lastText = None
-=======
-        self._isBusy = False
-        self._lastText = None  
->>>>>>> ddd7bdc75857374719298a0a6739c2a2df969107
         self._guid = str(uuid.uuid4())
         self._token = STSToken(sttKey)
         self._luisHeader = {
