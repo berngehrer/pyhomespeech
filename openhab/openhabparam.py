@@ -30,7 +30,7 @@ class OpenhabParameter:
 
     @property
     def isValid(self):
-        return 'method' in self._params and 'item' in self._params  #isinstance(self._params, dict) and 
+        return isinstance(self._params, dict) and 'method' in self._params and 'item' in self._params  
 
     def _get_value(self, key):
         if self.isValid: 
