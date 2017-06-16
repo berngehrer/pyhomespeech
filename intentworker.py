@@ -1,4 +1,5 @@
 from luis.luis_response import LUISResponse
+from include.applogging import AppLogger
 from include.intentresolver import *
 from include import *
 import paho.mqtt.client as mqtt
@@ -34,7 +35,6 @@ def perform_intent_workflow(luisResponse, intentConfig):
     # Perform Connectors
     if intentConfig.hasConnectors:
         for conn in [x for x in intentConfig.getConnectors() if x.isValid]:
-            print conn.target
             payload = json.dumps({ 'luis': luisParams, 'config': conn.parameter })
             client.publish(conn.channel, map_parameter(payload, luisParams))
         
@@ -48,7 +48,7 @@ def perform_intent_workflow(luisResponse, intentConfig):
 def on_message(client, userdata, msg):  
     try:
         text = str(msg.payload).encode('utf-8')
-
+        
         response = LUISResponse(text) 
         config = IntentResolver(response.get_top_intent().get_name())
        
@@ -70,11 +70,11 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(appsettings.MQTT_INTENT_TOPIC)
     
 
-logger = applogging.AppLogger("intentworker").instance
+logger = AppLogger("intentworker").instance
 
 client = mqtt.Client()
 client.on_connect = on_connect
-client.on_message = on_messag
+client.on_message = on_message
 client.connect(appsettings.MQTT_HOST, 1883, 60)
 
 try: 

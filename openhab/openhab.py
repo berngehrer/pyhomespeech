@@ -45,6 +45,7 @@ def on_message(client, userdata, msg):
             params = OpenhabParameter(configData)
             if params.isValid:
                 perform_request(params)
+            del params
     except:
         logger.error("Could not perform openhab action", exc_info=True)
         

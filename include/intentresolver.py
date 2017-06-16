@@ -1,3 +1,4 @@
+from include import appsettings
 import json
 import os
 
@@ -9,7 +10,7 @@ class IntentResolver:
 
     def load(self):
         try:
-            name = ('../' + appsettings.JSON_TEMPLATE) % self._intent
+            name = (appsettings.JSON_TEMPLATE) % self._intent
             if os.path.exists(name):
                 file = open(name, 'r')
                 self._config = json.loads(file.read())

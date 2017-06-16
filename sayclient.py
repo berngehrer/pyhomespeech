@@ -1,22 +1,8 @@
 from include.applogging import AppLogger
+from include.processhelper import *
 from include import *
 import paho.mqtt.client as mqtt
 import subprocess
-
-
-def runCommand(command, printError = False):
-    status = -1
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-    output, err = process.communicate() 
-    status = process.wait()
-    if status == 0:
-        return status, output
-    elif err:
-        raise Exception(err)
-    return status, None
-
-def on_connect(client, userdata, flags, rc):
-    client.subscribe(appsettings.MQTT_SAY_TOPIC)
 
 def on_message(client, userdata, msg):  
     try:
@@ -24,7 +10,10 @@ def on_message(client, userdata, msg):
         runCommand(appsettings.SAY_CMD.format(text))
     except:
         logger.error("Could not perform say command", exc_info=True)
-    
+ 
+def on_connect(client, userdata, flags, rc):
+    client.subscribe(appsettings.MQTT_SAY_TOPIC)
+
 
 logger = applogging.AppLogger("sayclient").instance
 
