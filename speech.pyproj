@@ -24,7 +24,7 @@
     <Compile Include="include\azuretoken.py" />
     <Compile Include="openhab\openhabparam.py" />
     <Compile Include="openhab\openhabclient.py" />
-    <Compile Include="openhab\openhab.py" />
+    <Compile Include="openhabconn.py" />
     <Compile Include="openhab\__init__.py">
       <SubType>Code</SubType>
     </Compile>

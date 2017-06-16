@@ -2,7 +2,7 @@
   "message": "",
   "entities": [
     {
-      "type": "buildin.percentage",
+      "type": "builtin.percentage",
       "missing": "Bitte Prozentwert angeben"
     }
   ],
@@ -12,8 +12,8 @@
       "parameter": {
         "method": "POST",
         "item": "Marco_Light_Dim",
-        "value": "{buildin.percentage}",
-        "message": "Helligkeit auf {buildin.percentage} Prozent"
+        "value": "{builtin.percentage}",
+        "message": "Helligkeit auf {builtin.percentage} Prozent"
       }
     }
   ]

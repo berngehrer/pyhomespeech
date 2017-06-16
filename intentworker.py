@@ -23,6 +23,8 @@ def perform_intent_workflow(luisResponse, intentConfig):
         if intentConfig.minScore > luisResponse.get_top_intent().get_score():
             return False
 
+    logger.info("Performing intent '%s' (%.2f%% confidence)" % (intentConfig.intent, luisResponse.get_top_intent().get_score() * 100))
+
     # Map entities
     luisParams = { }
     if intentConfig.hasEntities:
@@ -55,7 +57,6 @@ def on_message(client, userdata, msg):
         if not config.load() or not config.isValid:
             raise Exception("Error loading intent config")
         
-        #logger.info("Performing intent " + config.intent)
         (success, result) = perform_intent_workflow(response, config)
         if result:
             client.publish(appsettings.MQTT_SAY_TOPIC, result)
@@ -63,7 +64,7 @@ def on_message(client, userdata, msg):
             client.publish(appsettings.MQTT_SAY_TOPIC, appsettings.ERROR_TEXT)
     except:
         logger.error("Could not load intent message: " + text, exc_info=True)
-        #client.publish(_SAY_TOPIC, "Fehler beim ausfuhren")
+        client.publish(_SAY_TOPIC, "Fehler beim ausfuhren")
 
 
 def on_connect(client, userdata, flags, rc):

@@ -18,7 +18,7 @@ SAY_CMD             = "pico2wave --lang=de-DE --wave={0} '{1}'; aplay {0}; rm {0
 # -L    Endian Little
 # -c    Channel (1=Mono)
 # -r    Samplerate
-REC_CMD             = "sox -d -L -c 1 -r 16000 {0} silence 0 1 0:00:02 4% trim 0 4".format(STT_FILE)
+REC_CMD             = "sox -d -L -c 1 -r 16000 {} silence 0 1 0:00:02 4% trim 0 4".format(STT_FILE)
 
 # Azure
 STT_KEY             = "4743d9ad1cbe46f580e6f2dead6fc335"

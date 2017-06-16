@@ -1,5 +1,5 @@
-from openhabclient import OpenhabClient
-from openhabparam import OpenhabParameter
+from openhab.openhabclient import OpenhabClient
+from openhab.openhabparam import OpenhabParameter
 from include.applogging import AppLogger
 from include import *
 import paho.mqtt.client as mqtt
@@ -54,7 +54,7 @@ def on_connect(client, userdata, flags, rc):
 
 
 openhab = OpenhabClient()
-logger = AppLogger("openhab", appsettings.LOG_SUB_PATH).instance
+logger = AppLogger("openhab", appsettings.LOG_PATH).instance
 
 client = mqtt.Client()
 client.on_connect = on_connect
