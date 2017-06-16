@@ -9,7 +9,7 @@ class SpeechFunctions:
 
     def __init__(self, sttKey, luisKey):
         self._isBusy = False
-        self._lastText = 'Licht aus' # None  
+        self._lastText = None  
         self._guid = str(uuid.uuid4())
         self._token = STSToken(sttKey)
         self._luisHeader = {
